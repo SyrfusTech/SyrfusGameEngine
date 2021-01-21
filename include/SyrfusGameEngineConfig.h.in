@@ -1,0 +1,2 @@
+#define SyrfusGameEngine_VERSION_MAJOR @SyrfusGameEngine_VERSION_MAJOR@
+#define SyrfusGameEngine_VERSION_MINOR @SyrfusGameEngine_VERSION_MINOR@
