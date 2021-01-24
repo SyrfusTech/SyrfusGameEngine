@@ -1,7 +1,5 @@
-#!/bin/bash
+@ECHO OFF
 
-mkdir -p Builds
 cd Builds
-cmake ..
 cmake --build . --config Debug
 cd ..

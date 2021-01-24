@@ -3,10 +3,11 @@
 #include <iostream>
 
 #include <GLFW/glfw3.h>
+#include <glad/glad.h>
 
 int main(void)
 {
-    std::cout   << "Syrfus Game Engine\nVersion " << SyrfusGameEngine_VERSION_MAJOR << "." << SyrfusGameEngine_VERSION_MINOR << std::endl;
+    std::cout << "Syrfus Game Engine\nVersion " << SyrfusGameEngine_VERSION_MAJOR << "." << SyrfusGameEngine_VERSION_MINOR << std::endl;
 
     GLFWwindow* window;
 
@@ -24,6 +25,25 @@ int main(void)
 
     // Make the window's context current
     glfwMakeContextCurrent(window);
+    int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+    if (!status) {
+        std::cout << "Failed to initialize glad" << std::endl;
+    }
+
+    GLuint VertexArrayID;
+    glGenVertexArrays(1, &VertexArrayID);
+    glBindVertexArray(VertexArrayID);
+
+    static const GLfloat vertexBufferData[] = {
+        -0.5f, -0.5f, 0.0f,
+        0.0f, 0.5f, 0.0f,
+        0.5f, -0.5f, 0.0f
+    };
+
+    GLuint vertexBuffer;
+    glGenBuffers(1, &vertexBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertexBufferData), vertexBufferData, GL_STATIC_DRAW);
 
     // Loop until the user closes the window
     while (!glfwWindowShouldClose(window))
@@ -31,12 +51,12 @@ int main(void)
         // Render here
         glClear(GL_COLOR_BUFFER_BIT);
 
-        // Legacy OpenGL as a test
-        glBegin(GL_TRIANGLES);
-        glVertex2f(-0.5f, -0.5f);
-        glVertex2f(0.0f, 0.5f);
-        glVertex2f(0.5f, -0.5f);
-        glEnd();
+        glEnableVertexAttribArray(0);
+        glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+        glDisableVertexAttribArray(0);
 
         // Swap front and back buffers
         glfwSwapBuffers(window);
