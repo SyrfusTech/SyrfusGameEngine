@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mkdir -p Builds
-cd Builds
+mkdir -p build
+cd build
 cmake ..
 cd ..

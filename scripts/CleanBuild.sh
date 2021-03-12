@@ -1,7 +1,7 @@
 #!/bin/bash
 
-rm -rf Builds
-mkdir -p Builds
-cd Builds
+rm -rf build
+mkdir -p build
+cd build
 cmake ..
 cd ..

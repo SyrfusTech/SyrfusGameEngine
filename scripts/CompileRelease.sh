@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd Builds
+cd build
 cmake --build . --config Release
 cd ..

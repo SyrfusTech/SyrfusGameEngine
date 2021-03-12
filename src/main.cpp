@@ -1,4 +1,5 @@
 #include "SyrfusGameEngineConfig.h"
+#include "Folder1/Test.hpp"
 
 #include <iostream>
 
@@ -8,6 +9,8 @@
 int main(void)
 {
     std::cout << "Syrfus Game Engine\nVersion " << SyrfusGameEngine_VERSION_MAJOR << "." << SyrfusGameEngine_VERSION_MINOR << std::endl;
+    Test *test = new Test();
+    delete test;
 
     GLFWwindow* window;
 

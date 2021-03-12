@@ -1,6 +1,6 @@
 @ECHO OFF
 
-if not exist "Builds" mkdir Builds
-cd Builds
+if not exist "build" mkdir build
+cd build
 cmake ..
 cd ..

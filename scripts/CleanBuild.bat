@@ -1,7 +1,7 @@
 @ECHO OFF
 
-rmdir /s Builds
-if not exist "Builds" mkdir Builds
-cd Builds
+rmdir /s build
+if not exist "build" mkdir build
+cd build
 cmake ..
 cd ..

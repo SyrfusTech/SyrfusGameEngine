@@ -1,5 +1,5 @@
 @ECHO OFF
 
-cd Builds
+cd build
 cmake --build . --config Release
 cd ..
