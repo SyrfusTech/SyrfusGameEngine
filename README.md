@@ -28,4 +28,4 @@
 * DirectX 3D Rendering implementation.
 * Metal 3D Rendering implementation.
 
-### Current total time spent: 0h 30m
+### Current total time spent: 5h 45m
