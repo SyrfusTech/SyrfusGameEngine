@@ -3,29 +3,33 @@
 
 #include "Core/Application.hpp"
 
+#include "DataStructures/IterableStack.hpp"
+
 namespace SyrfusGameEngine
 {
 	class Engine
 	{
 	public:
-		static int init(Application& app);
-		static int shutdown();
+		static int Init(Application& app);
+		static int Shutdown();
 
-		static int run();
-		static int stop();
+		static int Run();
+		static int Stop();
+
+		static int DispatchEvent(Event& e);
 
 	private:
-		Engine();
+		Engine() = default;
+		~Engine() = default;
 		Engine(const Engine& other) = delete;
 		Engine& operator=(const Engine& other) = delete;
-
-		~Engine();
+		Engine(Engine&&) = delete;
+		Engine& operator=(Engine&&) = delete;
 
 	private:
 		static Engine* s_Instance;
 		bool m_Running = false;
-		Application* m_App;
-
+		IterableStack<Application*> m_AppStack;
 	};
 }
 

@@ -15,23 +15,19 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # ----------Compiler Definitions----------
 # ----------------------------------------
 
-add_compile_definitions(SYRFUS_WINDOWS=1)
-add_compile_definitions(SYRFUS_LINUX=0)
-add_compile_definitions(SYRFUS_MAC=0)
-
-add_compile_definitions(SYRFUS_OPENGL=1)
-add_compile_definitions(SYRFUS_VULKAN=0)
-add_compile_definitions(SYRFUS_DIRECTX=0)
-add_compile_definitions(SYRFUS_METAL=0)
-
-add_compile_definitions(SYRFUS_EGNEINE_LOGGING=1)
-add_compile_definitions(SYRFUS_APP_LOGGING=1)
-
-add_compile_definitions(SYRFUS_ENGINE_TIME_PROFILING=1)
-add_compile_definitions(SYRFUS_APP_TIME_PROFILING=1)
-
-add_compile_definitions(SYRFUS_ENGINE_MEMORY_PROFILING=1)
-add_compile_definitions(SYRFUS_APP_MEMORY_PROFILING=1)
+add_compile_definitions(SYRFUS_GAME_ENGINE_WINDOWS=1)
+add_compile_definitions(SYRFUS_GAME_ENGINE_LINUX=0)
+add_compile_definitions(SYRFUS_GAME_ENGINE_MAC=0)
+add_compile_definitions(SYRFUS_GAME_ENGINE_OPENGL=1)
+add_compile_definitions(SYRFUS_GAME_ENGINE_VULKAN=0)
+add_compile_definitions(SYRFUS_GAME_ENGINE_DIRECTX=0)
+add_compile_definitions(SYRFUS_GAME_ENGINE_METAL=0)
+add_compile_definitions(SYRFUS_GAME_ENGINE_EGNEINE_LOGGING=1)
+add_compile_definitions(SYRFUS_GAME_ENGINE_APP_LOGGING=1)
+add_compile_definitions(SYRFUS_GAME_ENGINE_ENGINE_TIME_PROFILING=1)
+add_compile_definitions(SYRFUS_GAME_ENGINE_APP_TIME_PROFILING=1)
+add_compile_definitions(SYRFUS_GAME_ENGINE_ENGINE_MEMORY_PROFILING=1)
+add_compile_definitions(SYRFUS_GAME_ENGINE_APP_MEMORY_PROFILING=1)
 
 # ----------------------------------------
 # ----IDE Setup / Include directories-----
