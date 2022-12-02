@@ -58,7 +58,7 @@ source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
 target_include_directories(
 	${PROJECT_NAME}
 	PUBLIC
-	"${SMAKE_CURRENT_SOURCE_DIR}/src"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src"
 	"${PROJECT_BINARY_DIR}/src"
 )
 

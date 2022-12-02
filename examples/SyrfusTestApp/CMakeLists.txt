@@ -42,7 +42,7 @@ file(GLOB_RECURSE SOURCE_FILES CONFIGURE_DEPENDS src/**.[hc]*(pp))
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
 # Make Visual Studio display the filters as the directory structure (Off for now)
-# source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+ source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
 
 # Add the src directory as include
 target_include_directories(
