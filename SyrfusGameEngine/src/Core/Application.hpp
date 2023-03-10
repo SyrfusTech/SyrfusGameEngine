@@ -1,8 +1,6 @@
 #ifndef APPLICATION_GUARD
 #define APPLICATION_GUARD
 
-#include "Core/Input/Event.hpp"
-
 #include <string>
 
 namespace SyrfusGameEngine
@@ -16,7 +14,6 @@ namespace SyrfusGameEngine
 		virtual void Init() {}
 		virtual void Shutdown() {}
 		virtual void Update() {}
-		virtual void HandleEvent(Event& e) {}
 
 		const std::string& GetName() const { return m_Name; }
 

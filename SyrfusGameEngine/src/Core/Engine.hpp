@@ -2,7 +2,6 @@
 #define ENGINE_GUARD
 
 #include "Core/Application.hpp"
-
 #include "DataStructures/IterableStack.hpp"
 
 namespace SyrfusGameEngine
@@ -15,8 +14,6 @@ namespace SyrfusGameEngine
 
 		static int Run();
 		static int Stop();
-
-		static int DispatchEvent(Event& e);
 
 	private:
 		Engine() = default;

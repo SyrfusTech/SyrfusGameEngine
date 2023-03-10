@@ -1,87 +1,45 @@
-# ----------------------------------------
-# ------------Project Settings------------
-# ----------------------------------------
-
+# Setup Project
 cmake_minimum_required(VERSION 3.1)
 project(
-	SyrfusGameEngine
-	VERSION 0.0
-	LANGUAGES CXX C
+    SyrfusTestApp
+    VERSION 0.0
+    LANGUAGES CXX C
 )
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# ----------------------------------------
-# ----------Compiler Definitions----------
-# ----------------------------------------
 
-add_compile_definitions(SYRFUS_GAME_ENGINE_WINDOWS=1)
-add_compile_definitions(SYRFUS_GAME_ENGINE_LINUX=0)
-add_compile_definitions(SYRFUS_GAME_ENGINE_MAC=0)
-add_compile_definitions(SYRFUS_GAME_ENGINE_OPENGL=1)
-add_compile_definitions(SYRFUS_GAME_ENGINE_VULKAN=0)
-add_compile_definitions(SYRFUS_GAME_ENGINE_DIRECTX=0)
-add_compile_definitions(SYRFUS_GAME_ENGINE_METAL=0)
-add_compile_definitions(SYRFUS_GAME_ENGINE_EGNEINE_LOGGING=1)
-add_compile_definitions(SYRFUS_GAME_ENGINE_APP_LOGGING=1)
-add_compile_definitions(SYRFUS_GAME_ENGINE_ENGINE_TIME_PROFILING=1)
-add_compile_definitions(SYRFUS_GAME_ENGINE_APP_TIME_PROFILING=1)
-add_compile_definitions(SYRFUS_GAME_ENGINE_ENGINE_MEMORY_PROFILING=1)
-add_compile_definitions(SYRFUS_GAME_ENGINE_APP_MEMORY_PROFILING=1)
+# Set Visual Studio Startup Project
+set_property(
+    DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT SyrfusTestApp
+)
 
-# ----------------------------------------
-# ----IDE Setup / Include directories-----
-# ----------------------------------------
+
+# Add Libraries
+add_subdirectory(SyrfusGameEngine)
+
 
 # Helps IDE's recognize what files are to be included
 include(CheckIncludeFile)
 include(CheckIncludeFileCXX)
 include(CheckIncludeFiles)
 
+
 # Passes in CMake variables to the generated .hpp file
-configure_file(src/SyrfusGameEngineConfig.hpp.in src/SyrfusGameEngineConfig.hpp)
+configure_file(SyrfusTestApp/src/SyrfusTestAppConfig.hpp.in SyrfusTestApp/src/SyrfusTestAppConfig.hpp)
 
-# Compile a list of all source files
-file(GLOB_RECURSE SOURCE_FILES CONFIGURE_DEPENDS src/**.[hc]*(pp) include/**.[hc]*(pp))
 
-# Output library with target name SyrfusGameEngine using every .hpp and .cpp file globbed above
-add_library(${PROJECT_NAME} ${SOURCE_FILES})
-
-# Add the src directory as include
-source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
-
-# Add all files in the src directory (including the SyrfusGameEngineConfig.hpp) as include
-target_include_directories(
-	${PROJECT_NAME}
-	PUBLIC
-	"${CMAKE_CURRENT_SOURCE_DIR}/src"
-	"${PROJECT_BINARY_DIR}/src"
+# Add excecutable
+file(GLOB_RECURSE SOURCE_FILES CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/SyrfusTestApp/src/**.[hc]*(pp))
+add_executable(${PROJECT_NAME})
+target_sources(${PROJECT_NAME} PRIVATE
+	${SOURCE_FILES}
 )
 
-# Proecompile headers
-# target_precompile_headers(
-#     ${PROJECT_NAME}
-#     PUBLIC
-#         <iostream>
-#         <sstream>
-#         <string>
-# 
-#         <algorithm>
-#         <functional>
-#         <memory>
-#         <utility>
-#         <thread>
-#         <chrono>
-# 
-#         <array>
-#         <map>
-#         <queue>
-#         <set>
-#         <stack>
-#         <unordered_map>
-#         <unordered_set>
-#         <vector>
-# )
 
-# Continue CMake execution into the testing Application
-add_subdirectory(examples/SyrfusTestApp)
+# Display all project files in the Visual Studio Solution Explorer
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCE_FILES})
+
+
+# Link libraries
+target_link_libraries(${PROJECT_NAME} SyrfusGameEngine)

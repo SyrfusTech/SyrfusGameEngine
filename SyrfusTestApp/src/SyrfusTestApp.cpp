@@ -1,4 +1,4 @@
-#include "SyrfusGameEngine.hpp"
+#include <SyrfusGameEngine.hpp>
 
 #include <iostream>
 
@@ -22,12 +22,6 @@ public:
 	{
 
 	}
-
-	void HandleEvent(SyrfusGameEngine::Event& e)
-	{
-		std::cout << e.ToString() << std::endl;
-	}
-
 };
 
 int main()

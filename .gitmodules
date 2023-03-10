@@ -1,0 +1,3 @@
+[submodule "SyrfusGameEngine/dependencies/glfw"]
+	path = SyrfusGameEngine/dependencies/glfw
+	url = https://github.com/glfw/glfw.git
