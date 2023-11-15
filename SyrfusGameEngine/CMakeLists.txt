@@ -23,12 +23,9 @@ add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/dependencies/glad)
 # Compiler Definitions
 add_compile_definitions(SYRFUS_GAME_ENGINE_OPENGL=1)
 add_compile_definitions(SYRFUS_GAME_ENGINE_VULKAN=0)
-add_compile_definitions(SYRFUS_GAME_ENGINE_ENGINE_LOGGING=1)
-add_compile_definitions(SYRFUS_GAME_ENGINE_APP_LOGGING=1)
-add_compile_definitions(SYRFUS_GAME_ENGINE_ENGINE_TIME_PROFILING=1)
-add_compile_definitions(SYRFUS_GAME_ENGINE_APP_TIME_PROFILING=1)
-add_compile_definitions(SYRFUS_GAME_ENGINE_ENGINE_MEMORY_PROFILING=1)
-add_compile_definitions(SYRFUS_GAME_ENGINE_APP_MEMORY_PROFILING=1)
+add_compile_definitions(SYRFUS_GAME_ENGINE_LOGGING=1)
+add_compile_definitions(SYRFUS_GAME_ENGINE_TIME_PROFILING=1)
+add_compile_definitions(SYRFUS_GAME_ENGINE_MEMORY_PROFILING=1)
 
 
 # Help IDE's recognize what files are to be included

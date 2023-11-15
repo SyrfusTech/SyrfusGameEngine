@@ -3,5 +3,6 @@
 
 #include "Core/Engine.hpp"
 #include "Core/Application.hpp"
+#include "Core/Logging/Logger.hpp"
 
 #endif
