@@ -1,6 +1,7 @@
 #include "Engine.hpp"
 
-#include <iostream>
+#include "Core/Logging/Logger.hpp"
+
 #include <chrono>
 #include <thread>
 
@@ -11,30 +12,27 @@ namespace SyrfusGameEngine
 {
 	Engine* Engine::s_Instance = nullptr;
 
-	int Engine::Init(Application& app)
+	void Engine::Init(Application& app)
 	{
 		if (s_Instance)
-			return -1;
+			return;
 		s_Instance = new Engine();
 		s_Instance->m_AppStack.Push(&app);
 		app.Init();
-		return 0;
 	}
 
-	int Engine::Shutdown()
+	void Engine::Shutdown()
 	{
-
 		if (!s_Instance)
-			return -1;
+			return;
 		for (Application* app : s_Instance->m_AppStack)
 		{
 			app->Shutdown();
 		}
 		delete s_Instance;
-		return 0;
 	}
 
-	int Engine::Run()
+	void Engine::Run()
 	{
 
 		s_Instance->m_Running = true;
@@ -42,14 +40,14 @@ namespace SyrfusGameEngine
 
 		/* Initialize the library */
 		if (!glfwInit())
-			return -1;
+			return;
 
 		/* Create a windowed mode window and its OpenGL context */
 		window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
 		if (!window)
 		{
 			glfwTerminate();
-			return -1;
+			return;
 		}
 
 		/* Make the window's context current */
@@ -74,12 +72,10 @@ namespace SyrfusGameEngine
 			}
 		}
 		glfwTerminate();
-		return 0;
 	}
 
-	int Engine::Stop()
+	void Engine::Stop()
 	{
 		s_Instance->m_Running = false;
-		return 0;
 	}
 }

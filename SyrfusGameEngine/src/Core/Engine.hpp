@@ -9,11 +9,11 @@ namespace SyrfusGameEngine
 	class Engine
 	{
 	public:
-		static int Init(Application& app);
-		static int Shutdown();
+		static void Init(Application& app);
+		static void Shutdown();
 
-		static int Run();
-		static int Stop();
+		static void Run();
+		static void Stop();
 
 	private:
 		Engine() = default;
