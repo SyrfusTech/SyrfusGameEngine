@@ -18,6 +18,11 @@ set_property(
 # Add Libraries
 add_subdirectory(SyrfusGameEngine)
 
+add_compile_definitions(SYRFUS_GAME_ENGINE_OPENGL=1)
+add_compile_definitions(SYRFUS_GAME_ENGINE_VULKAN=0)
+add_compile_definitions(SYRFUS_GAME_ENGINE_LOGGING=1)
+add_compile_definitions(SYRFUS_GAME_ENGINE_TIME_PROFILING=1)
+add_compile_definitions(SYRFUS_GAME_ENGINE_MEMORY_PROFILING=1)
 
 # Helps IDE's recognize what files are to be included
 include(CheckIncludeFile)

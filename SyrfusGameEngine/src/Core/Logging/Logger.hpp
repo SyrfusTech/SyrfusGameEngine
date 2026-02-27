@@ -3,9 +3,11 @@
 
 #if SYRFUS_GAME_ENGINE_LOGGING
 #include <cstdint>
+#include <string>
 
-#define SYRFUS_LOG(logLvl, fmt, ...) Logger::Log(logLvl, fmt, __VA_ARGS__)
-
+#define SYRFUS_LOGGER_INIT(LOG_LEVEL) SyrfusGameEngine::Logger::Init(LOG_LEVEL)
+#define SYRFUS_LOGGER_SHUTDOWN() SyrfusGameEngine::Logger::Shutdown()
+#define SYRFUS_LOG(logLvl, fmt, ...) SyrfusGameEngine::Logger::Log(logLvl, fmt, __VA_ARGS__)
 #define LOG_LEVEL_FATAL 0b10000000
 #define LOG_LEVEL_ERROR 0b01000000
 #define LOG_LEVEL_WARN 0b00100000
@@ -33,11 +35,28 @@ namespace SyrfusGameEngine
 		Logger(Logger&&) = delete;
 		Logger& operator=(Logger&&) = delete;
 
+		static void PrepareMessage(uint8_t loglevel, std::string& message);
+
 	private:
 		static Logger* s_Logger;
 		uint8_t m_LogLevelMask = 0;
 	};
 }
+#else
+
+#define SYRFUS_LOGGER_INIT(LOG_LEVEL)
+#define SYRFUS_LOGGER_SHUTDOWN()
+#define SYRFUS_LOG(logLvl, fmt, ...)
+
+#define LOG_LEVEL_FATAL
+#define LOG_LEVEL_ERROR
+#define LOG_LEVEL_WARN
+#define LOG_LEVEL_INFO
+#define LOG_LEVEL_DEBUG
+#define LOG_LEVEL_TRACE
+#define LOG_LEVEL_NONE
+#define LOG_LEVEL_ALL
+
 #endif
 
 #endif

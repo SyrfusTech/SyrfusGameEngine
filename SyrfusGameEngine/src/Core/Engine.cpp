@@ -16,6 +16,8 @@ namespace SyrfusGameEngine
 	{
 		if (s_Instance)
 			return;
+		SYRFUS_LOGGER_INIT(LOG_LEVEL_ALL);
+		SYRFUS_LOG(LOG_LEVEL_TRACE, "%s: %s", __FUNCTION__, "Logger initialized.");
 		s_Instance = new Engine();
 		s_Instance->m_AppStack.Push(&app);
 		app.Init();
@@ -29,6 +31,7 @@ namespace SyrfusGameEngine
 		{
 			app->Shutdown();
 		}
+		SYRFUS_LOGGER_SHUTDOWN();
 		delete s_Instance;
 	}
 
