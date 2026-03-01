@@ -2,10 +2,8 @@
 
 ## Build Instructions:
 
-## Current Status:
-* Application Interface allowing programs to pass execution flow to the Engine.
-
 ## Roadmap:
+* Application Interface allowing programs to pass execution flow to the Engine.
 * Basic GUI Application systems (Windowing, Input).
 * Basic Tooling systems (Logging, Running time Profiling, Memory Profiling).
 * Abstract 2D Rendering API (OpenGL implementation).
